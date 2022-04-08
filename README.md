@@ -12,6 +12,7 @@ If you are not making use of Laravel Valet the below could differ a bit.
 1. Create and fill the .env file (example included /.env-example)
 1. Run `php artisan migrate` to create database tables
 1. Seed the database by running `php artisan db:seed`
+1. Storage link `php artisan storage:link`
 1. Run `npm install`
 1. Run `npm run dev`
 1. Visit http://thunderbite-backend-test.test/backstage and happy coding
