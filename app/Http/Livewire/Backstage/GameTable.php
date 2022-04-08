@@ -85,6 +85,7 @@ class GameTable extends TableComponent
 
         return view('livewire.backstage.table', [
             'columns' => $columns,
+            // 'prizes' => Prize::where('campaign_id', session()->get('activeCampaign'))->select('id', 'name')->get(),
             'prizes' => Prize::select('id', 'name')->get(),
             'resource' => 'games',
             'rows' => Game::filter($this->filter1, $this->filter2, $this->filter3, $this->filter4)
