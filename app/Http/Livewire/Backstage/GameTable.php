@@ -49,19 +49,19 @@ class GameTable extends TableComponent
         $columns = [
             [
                 'title' => 'account',
-                'sort' => true,
+                'sort' => false,
             ],
 
             [
-                'title' => 'symbols',
+                'title' => 'symbols matched',
                 'attribute' => 'symbols',
-                'sort' => false,
+                'sort' => true,
             ],
 
             [
                 'title' => 'points',
                 'attribute' => 'points',
-                'sort' => false,
+                'sort' => true,
             ],
             
             [
@@ -71,8 +71,8 @@ class GameTable extends TableComponent
             ],
 
             [
-                'title' => 'title',
-                'attribute' => 'title',
+                'title' => 'Prize Title',
+                'attribute' => 'prize_title',
                 'sort' => true,
             ],
 

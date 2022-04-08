@@ -163,10 +163,18 @@ class SlotMachine extends Component
                 else
                     $symbols .= $item['symbol'].', ';
             }
-            // $prizes = Prize::where('campaign_id', session()->get('activeCampaign'))->get();
-            
-            Game::where( 'id', session()->get('gameId'))->update(['symbols'=> $symbols, 'points'=> $this->total_points]);
-            session()->remove('activeCampaign');
+            $game =[
+                'symbols'   => $symbols, 
+                'points'    => $this->total_points,
+            ];
+            if( Prize::where('campaign_id', session()->get('activeCampaign'))->where('weight', '<=', $this->total_points)->count()){
+                $prize = Prize::where('campaign_id', session()->get('activeCampaign'))
+                                ->where('weight', '>=', $this->total_points)
+                                ->orderBy('weight', 'ASC')
+                                ->first();
+                $game['prize_id'] = $prize->id;
+            }
+            Game::where( 'id', session()->get('gameId'))->update($game);
             session()->remove('gameId');
         }
     }    

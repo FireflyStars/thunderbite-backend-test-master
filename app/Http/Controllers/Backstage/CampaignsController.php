@@ -156,14 +156,15 @@ class CampaignsController extends Controller
             session()->flash('error', 'A maximum of 10 symbols should be existed. but it has '.Symbol::count());
         }else if( Symbol::count() < 6 ){
             session()->flash('error', 'A minimum of 6 symbols should be existed. but it has '.Symbol::count());
-        }else if ( Game::where('account', Auth::user()->username)->whereBetween('created_at', [Carbon::now()->startOfDay()->toDateTimeString(), Carbon::now()->endOfDay()->toDateTimeString()])->count() > 0 ){
+        }else if ( Game::where('account', auth()->user()->username)->whereBetween('created_at', [Carbon::now()->startOfDay()->toDateTimeString(), Carbon::now()->endOfDay()->toDateTimeString()])->count() > 0 ){
             session()->flash('error', 'you can only create 1 game per day');
         }else{
             session()->put('activeCampaign', $campaign->id);
-            session()->put('gameId', Game::insertGetId([
-                'campaign_id'   => $campaign->id,
-                'account'       => Auth::user()->username,
-            ]));
+            $game = new Game();
+            $game->campaign_id = $campaign->id;
+            $game->account = auth()->user()->username;
+            $game->save();
+            session()->put('gameId', $game->id);
         }
         return redirect()->route('backstage.campaigns.index');
     }
