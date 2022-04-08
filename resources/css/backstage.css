@@ -1,0 +1,357 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '~@fortawesome/fontawesome-free/css/all.css';
+@import '~flatpickr/dist/flatpickr.min.css';
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    outline: none !important;
+}
+
+body,
+html {
+    height: 100%;
+}
+
+body {
+    /* background: url('../img/background.png') bottom center no-repeat; */
+    background-size: contain;
+}
+
+h1 {
+    color: #2c3c84;
+    @apply text-xl font-bold pb-6;
+}
+
+a {
+    color: #769ef7;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.button-create {
+    background: rgb(255, 125, 59);
+    background: linear-gradient(0deg, rgba(255, 125, 59, 1) 0%, rgba(255, 147, 53, 1) 90%);
+    @apply rounded-lg px-6 py-3 text-white leading-none inline-block ml-2;
+}
+
+.button-create:hover {
+    background: rgb(255, 147, 53);
+    background: linear-gradient(0deg, rgba(255, 147, 53, 1) 0%, rgba(255, 125, 59, 1) 90%);
+    @apply no-underline;
+}
+
+.button-default {
+    border-color: rgb(255, 125, 59);
+    color: rgb(255, 125, 59);
+    @apply border-2 rounded-lg px-6 py-3 leading-none inline-block ml-2;
+}
+
+.button-default:hover {
+    border-color: rgb(255, 125, 59);
+    background: linear-gradient(0deg, rgba(255, 125, 59, 1) 0%, rgba(255, 147, 53, 1) 90%);
+    @apply no-underline border-2 text-white;
+}
+
+.button-log {
+    border-color: rgb(255, 125, 59);
+    color: rgb(255, 125, 59);
+    @apply border-2 rounded-lg px-6 py-3 leading-none inline-block ml-2;
+}
+
+.button-log:hover {
+    border-color: rgb(255, 125, 59);
+    background: linear-gradient(0deg, rgba(255, 125, 59, 1) 0%, rgba(255, 147, 53, 1) 90%);
+    @apply no-underline border-2 text-white;
+}
+
+#header-border {
+    background: #68a4ff;
+    border-bottom-right-radius: 50px;
+    position: relative;
+}
+
+#header-border::before {
+    content: "";
+    position: absolute;
+    background-color: #fafafa;
+    bottom: -50px;
+    height: 50px;
+    width: 50px;
+    border-top-left-radius: 50px;
+    box-shadow: 0 -4px 0 0 #68a4ff;
+    z-index: 2;
+}
+
+#header {
+    background: rgb(42, 124, 232);
+    background: linear-gradient(0deg, rgba(42, 124, 232, 1) 0%, rgba(30, 86, 225, 1) 100%);
+    border-bottom-right-radius: 120px;
+    position: relative;
+}
+
+#header::before {
+    content: "";
+    position: absolute;
+    background: rgb(50, 145, 237);
+    background: linear-gradient(0deg, rgba(50, 145, 237, 1) 0%, rgba(43, 123, 232, 1) 100%);
+    bottom: -50px;
+    height: 50px;
+    width: 50px;
+    left: 0;
+    z-index: 1;
+}
+
+#card {
+    margin-top: -40px;
+    position: relative;
+}
+
+#card::before {
+    content: "";
+    position: absolute;
+    background-color: #ffffff;
+    height: 20px;
+    width: 100%;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    box-shadow: 0 -4px 0 0 #ffba34;
+    top: -10px;
+}
+
+.input-holder {
+    @apply relative text-gray-600 mb-4;
+}
+
+.input-holder input {
+    @apply bg-form border border-form h-10 px-4 rounded-lg text-sm w-full;
+}
+
+.input-holder svg {
+    color: #45b6fb;
+    @apply absolute right-0 top-0 mt-3 mr-4 h-4 w-4;
+}
+
+.input-holder .error {
+    @apply text-sm bg-red-200 mx-6 px-2 py-1 rounded-b-lg border border-red-300 border-t-0;
+}
+
+.has-error input {
+    @apply border-red-300;
+}
+
+.has-error sv {
+    @apply border-red-300;
+}
+
+.submit-button {
+    background: rgb(255, 200, 51);
+    background: linear-gradient(90deg, rgba(255, 200, 51, 1) 0%, rgba(255, 123, 61, 1) 100%);
+    @apply rounded-lg px-6 py-2 text-sm text-white;
+}
+
+.submit-button:hover {
+    background: rgb(255, 200, 51);
+    background: linear-gradient(90deg, rgba(255, 123, 61, 1) 0%, rgba(255, 200, 51, 1) 100%);
+}
+
+/**
+ Main Navigation
+ */
+.nav-header {
+    color: #f03b52;
+    @apply uppercase mb-4 text-sm;
+}
+
+nav a span.icon-holder {
+    border-color: #d4d9ec;
+    @apply border rounded-full w-8 h-8 flex items-center justify-center;
+}
+
+.navigation-icon {
+    color: #d4d9ec;
+    vertical-align: inherit;
+    @aplly front-bold;
+}
+
+nav a:hover .navigation-icon,
+nav a.active .navigation-icon {
+    color: #45b6fb;
+}
+
+nav a span.text {
+    color: #b9bed6;
+    @apply font-bold pl-2;
+}
+
+nav a:hover span.text,
+nav a.active span.text {
+    color: #2c3c84;
+}
+
+/**
+ Pagination
+ */
+.pagination {
+    @apply flex;
+}
+
+.page-item.d-none {
+    @apply border border-r-0 border-l-0 border-gray-300 py-1;
+}
+
+.page-item.d-none:nth-child(2) {
+    @apply border-l rounded-l-full pl-1;
+}
+
+.page-item.d-none:nth-last-child(-n+2) {
+    @apply border-r rounded-r-full pr-1;
+}
+
+.page-item.d-none button {
+    @apply border-r border-gray-300 text-gray-300 px-3 text-sm;
+}
+
+.page-item.d-none span.page-link {
+    color: #f03b52;
+    @apply border-r border-gray-300 px-3 text-sm;
+}
+
+.page-item.d-none:nth-last-child(-n+2) button,
+.page-item.d-none:nth-last-child(-n+2) span.page-link {
+    @apply border-r-0;
+}
+
+.page-item:first-child,
+.page-item:last-child {
+    display: none;
+}
+
+/**
+ Tables
+ */
+.table-header {
+    background: rgb(81, 182, 255);
+    background: linear-gradient(0deg, rgba(81, 182, 255, 1) 0%, rgba(78, 147, 255, 1) 90%);
+    @apply px-6 py-3 text-left text-xs leading-4 font-bold uppercase tracking-wider text-white;
+}
+
+.table-header a {
+    @apply text-white font-bold;
+}
+
+table th:first-child {
+    @apply rounded-l-full;
+}
+
+table th:last-child {
+    @apply rounded-r-full;
+}
+
+table tr.alternate td {
+    @apply bg-gray-100;
+}
+
+table tr.alternate td:first-child {
+    @apply rounded-l-full;
+}
+
+table tr.alternate td:last-child {
+    @apply rounded-r-full;
+}
+
+.table-tool {
+    color: #49b7fb;
+    @apply pr-2;
+}
+
+.table-tool:hover {
+    color: #3380b0;
+    @apply no-underline;
+}
+
+/**
+ Sweetalert
+ */
+.swal-title {
+    @apply text-lg;
+}
+
+.swal-text {
+    @apply text-center;
+}
+
+.swal-delete-button {
+    background-color: #f03b52;
+}
+
+.swal-delete-button:not([disabled]):hover {
+    background-color: #a82939;
+}
+
+/**
+    Forms
+ */
+.thunderbite-label {
+    @apply block text-sm font-medium leading-5 text-gray-700 mt-px pt-2 text-right;
+}
+
+.thunderbite-input {
+    @apply block w-full text-sm leading-5 bg-form border border-form rounded-lg h-10 px-4;
+}
+
+.thunderbite-input.is-invalid {
+    border-color: #f03b52;
+}
+
+.invalid-feedback {
+    color: #f03b52;
+    @apply px-4 py-2 text-sm;
+}
+
+/**
+ Select 2
+ */
+form .select2-container--default .select2-selection--single,
+form .select2-container--default.select2-container--focus .select2-selection--single,
+form .select2-container--default .select2-selection--multiple,
+form .select2-container--default.select2-container--focus .select2-selection--multiple {
+    @apply block w-full text-sm leading-5 bg-form border border-form px-1 pt-2 rounded-lg;
+}
+
+form .select2-container--default .select2-selection--single,
+form .select2-container--default.select2-container--focus .select2-selection--single {
+    line-height: 30px;
+    @apply h-10 py-1;
+}
+
+form .select2-container--default.select2-container--focus .select2-selection--single,
+form .select2-container--default.select2-container--focus .select2-selection--multiple {
+    @apply rounded-lg;
+}
+
+form .select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 7px;
+    right: 7px;
+}
+
+form .select2-container--default .select2-selection--multiple .select2-selection__choice {
+    background: rgb(42, 124, 232);
+    background: linear-gradient(0deg, rgba(42, 124, 232, 1) 0%, rgba(30, 86, 225, 1) 100%);
+    line-height: 1.9rem;
+    @apply rounded-lg px-3 text-sm text-white font-bold border-none m-0 mr-2 mb-2;
+}
+
+form .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    line-height: 1;
+    @apply mr-2 text-white;
+}
+
+form .select2-container--default .select2-results>.select2-results__options {
+    @apply border-form rounded-lg text-sm;
+}
